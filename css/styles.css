@@ -1,0 +1,9 @@
+//css styles
+
+#colorMePink {
+	height: 8px;
+	width: 24px;
+	margin: 1em;
+	background-color: pink;
+	color: red;
+}

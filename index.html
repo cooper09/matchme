@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Matching App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" data-semver="1.0.7"></script>
+    <script src="app.js"></script>
+    <style>
+      #idea {
+          height: 150px;
+          width: 300px;
+          margin: 10px;
+          background-color: gray;
+          color: #DDD;
+          padding: 1em;
+          overflow: hidden;
+        }
+      #expert {
+         height: 260px;
+          width: 300px;
+          margin: 10px;
+          background-color: gray;
+          color: #DDD;
+          padding: 1em;
+      }
+      .base-class {
+        font-family: Arial, sans-serif; 
+        display: none; 
+      }
+      .base-class.show {
+        display:inline;
+      }
+      ,
+    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, maximum-scale=2.0, width=device-width" />
+    <title>SIMPLE Matching Algorithm</title>
+  </head>
+
+  <body ng-controller="testCtrl" ng-init="init()">
+   <h1>Match Me</h2>
+     <p>I have an idea in a particular field. Match me with an expert in that field.</p>
+      <p>Please select if you have an idea or want to be an idea expert. </p>
+   <div id="idea" ng-show="showIdea">
+     <label>Choose Your Category: </label>
+      <span ng-controller="ideaCtrl">
+             <select 
+              ng-model="selectedOption" 
+              ng-options="option.cat for option in options"
+              ng-change="changeCategory(selectedOption)"
+              id="Category"
+              >
+            </select>
+          </span>
+           <p></p>
+            <label>Your Email: </label>
+    <input type="text" ng-model="emailAddr" /><br />
+    <p></p>
+      <input id="setbtn" type="button" value="FindExpert" ng-click="yourexpert='show'">
+     <p></p>
+      <div class="base-class" ng-class="yourexpert" >
+        <text ng-model="expert">TEST - Your expert is Herbert Freebie{{expert}}. He will be contacting you shortly</text>
+      </div>
+</div> <!-- end idea -->
+
+<div id="expert" ng-show="showExpert">
+       <label>So you want to be an expert. Select a category in the dropdown box below in the order of preference, ie, if Engineering is your strongest skillset click 'Engineering', if 'Science' is your next strongest select that next then your third preference until all five categories are selected:</label>
+    <span ng-controller="expertCtrl">
+             <select 
+              ng-model="selectedOption" 
+              ng-options="option.cat for option in options"
+              ng-change="changeCategory(selectedOption)"
+              id="Category"
+              >
+            </select>
+             <p></p>
+            <label>Your Email: </label>
+              <input type="text" ng-model="emailAddr" /><br />
+              <p></p>
+                <input id="setbtn" type="button" value="Build Profile" ng-click="showProfile()">
+               <p></p>
+          </span>
+           <p></p>
+            
+     <div class="base-class" ng-class="yourexpert" >
+        <text>Your profile has been added..now sit and wait for the requests to come rolling in!</text>
+      </div>
+   </div> 
+<div id="main_btns">   
+  <button ng-click="showIdea = !showIdea">Idea/Question</button>
+  <button ng-click="showExpert = !showExpert">Idea Expert</button>
+</div>  
+
+  </body>
+
+
+
+</html>
