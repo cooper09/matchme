@@ -58,13 +58,15 @@
             <label>Your Email: </label>
     <input type="text" ng-model="emailAddr" /><br />
     <p></p>
-      <input id="setbtn" type="button" value="FindExpert" ng-click="yourexpert='show'">
+      <input id="ideabtn" type="button" value="FindExpert" ng-click="yourexpert='show'">
+      <input id="ideabtn2" type="button" value="FindExpert" ng-click="getExpert()">
      <p></p>
       <div class="base-class" ng-class="yourexpert" >
         <text ng-model="expert">TEST - Your expert is Herbert Freebie{{expert}}. He will be contacting you shortly</text>
       </div>
 </div> <!-- end idea -->
 
+<!-- EXPERT section -->
 <div id="expert" ng-show="showExpert">
        <label>So you want to be an expert. Select a category in the dropdown box below in the order of preference, ie, if Engineering is your strongest skillset click 'Engineering', if 'Science' is your next strongest select that next then your third preference until all five categories are selected:</label>
     <span ng-controller="expertCtrl">
