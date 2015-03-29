@@ -64,6 +64,7 @@ console.log ("My expert Controller is in control!")
 
 var expertData = new Array();
 var optionNo = 0;
+var firsttime = true;
 
 var ctgArr =[{"id":"1", "cat": "Science"},
 				{"id":"2","cat":"Design"},
@@ -76,9 +77,9 @@ var ctgArr =[{"id":"1", "cat": "Science"},
    var options = ctgArr;
     // make sure the selector get the final options
         $scope.options = options;
-        $scope.selectedOption = 0; 
+        $scope.selectedOption = $scope.options[0]; 
 
-
+if ( !firsttime) {
  $scope.$watch('selectedOption', function(newValue, oldValue) {
                     // handle selection change ...
                     console.log("expertController - selection: " , $scope.selectedOption);
@@ -89,8 +90,9 @@ var ctgArr =[{"id":"1", "cat": "Science"},
                     console.log("current options: " + $scope.options[optionNo].cat );
 
                     expertData[optionNo] = option;
+                    $scope.selectedOption = $scope.options[0];
 
-                    //reset option array to exclude selection / add selection to profile array FIFO  */
+                //reset option array to exclude selection / add selection to profile array FIFO 
                      for ( var i=0 ; i <  $scope.options.length ; i++) {
                         if ( i !=  optionNo ) {
                             console.log("ExpertController - sending country: " + $scope.options[i].cat );
@@ -103,9 +105,11 @@ var ctgArr =[{"id":"1", "cat": "Science"},
                     console.log("new options list: " , newOptions );
                     $scope.options = newOptions;
                     //$scope.options = options;
-
+                    $scope.selectedOption = $scope.options[i];
                 });//end watch selectedOption 
+}//end if on watch
 
+firsttime = false;
 
  $scope.showProfile = function () {
    	 console.log("getProfile - Build our user profile: " , expertData[1].cat );
