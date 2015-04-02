@@ -1,0 +1,69 @@
+// ---------------------------------------------------------------------------
+// Basic Grid
+
+$total-columns: 12
+$column-width: 4em
+$gutter-width: 1em
+$grid-padding: $gutter-width
+
+$show-grid-backgrounds: false
+
+// base colors
+$dark-blue: #003f72
+$blue: #0083be	
+$dark-grey: #748087	
+$med-grey: #f8f8f8
+$grey: #dcddde
+$light-grey: #ccc
+$gold: #bd944c	
+$white: #ffffff
+$yellow: #f3d044
+
+// accent colors
+$orange: #f6a800
+$green: #598527
+$bronze: #a2a568
+
+// other colors
+$light: #eee
+$dark: #555
+$black: #666666
+
+// breakpoints
+$tablet-break: 985px
+$tablet-columns: 12
+$phone-break: 651px
+$phone-columns: 12
+$iphone-break: 400px
+
+// breakpoint shortcuts
+$desktop: $tablet-break $total-columns
+$tablet: $phone-break $tablet-columns $tablet-break
+$phone: $phone-columns $phone-break
+$iphone: $phone-columns $iphone-break
+
+$legacy-support-for-ie  : true
+$legacy-support-for-ie6 : $legacy-support-for-ie
+$legacy-support-for-ie7 : $legacy-support-for-ie
+
+// mixins
+
+=heading-font
+	font-family: "Open Sans", Arial, sans-serif
+
+=button
+	color: $dark-blue
+	text-decoration: none
+	font-weight: 600
+	white-space: nowrap
+	&:hover
+		text-decoration: underline
+		color: $blue
+	a
+		text-decoration: none
+		color: $dark-blue
+		&:link
+			color: $dark-blue
+		i
+			margin-left: 5px
+

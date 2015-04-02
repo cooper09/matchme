@@ -64,7 +64,7 @@ var expertData = new Array();
 var optionNo = 0;
 var firsttime = true;
 
-var ctgArr =[ {"id":"0", "cat": "Please select category, untill all categories are selected..."},
+var ctgArr =[ {"id":"0", "cat": "Please select until all categories are selected."},
         {"id":"1", "cat": "Science"},
         {"id":"2","cat":"Design"},
         {"id":"3","cat":"Engineering"},

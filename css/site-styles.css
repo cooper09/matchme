@@ -1,0 +1,61 @@
+/* line 2, ../sass/partials/_main.sass */
+#idea {
+  height: 150px;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+  margin: 10px;
+  background-color: gray;
+  color: #dddddd;
+  padding: 1em;
+  overflow: hidden;
+}
+@media (max-width: 651px) {
+  /* line 2, ../sass/partials/_main.sass */
+  #idea {
+    width: 83.05085%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+}
+
+/* line 13, ../sass/partials/_main.sass */
+#expert {
+  height: 260px;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+  margin: 10px;
+  background-color: gray;
+  color: #dddddd;
+  padding: 1em;
+}
+@media (max-width: 651px) {
+  /* line 13, ../sass/partials/_main.sass */
+  #expert {
+    width: 83.05085%;
+    float: left;
+    margin-right: 1.69492%;
+  }
+}
+
+/* line 23, ../sass/partials/_main.sass */
+.base-class {
+  font-family: Arial, sans-serif;
+  display: none;
+}
+
+/* line 27, ../sass/partials/_main.sass */
+.base-class.show {
+  display: inline;
+}
+
+/* line 30, ../sass/partials/_main.sass */
+#main_btns {
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  display: inline;
+}

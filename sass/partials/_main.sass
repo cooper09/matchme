@@ -1,0 +1,32 @@
+
+#idea 
+  height: 150px
+  +span-columns(6)
+  margin: 10px
+  background-color: gray
+  color: #DDD
+  padding: 1em
+  overflow: hidden
+  +at-breakpoint($phone)
+    +span-columns(10)
+        
+#expert 
+  height: 260px
+  +span-columns(6)
+  margin: 10px
+  background-color: gray
+  color: #DDD
+  padding: 1em
+  +at-breakpoint($phone)
+    +span-columns(10)
+
+.base-class 
+  font-family: Arial, sans-serif 
+  display: none 
+
+.base-class.show 
+  display: inline
+      
+#main_btns
+  +span-columns(6)
+
