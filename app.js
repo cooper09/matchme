@@ -6,12 +6,14 @@ var testData;
 var expertData = new Array();
 
 $scope.init = function () {
- console.log("And away we go....!");
+console.log("Yes...And away we go....!");
 
-/* $http.get( 'http://localhost:3000').success(function(data) {
-			console.log("dataControl.getData data:  ",data);
-			
-		}); */
+ $http.get( 'http://localhost:3030/').success(function(data) {
+			// if (err) throw err;
+    console.log("dataControl.getData data:  ",data[0].name );
+		}).error (function(data) {
+        alert("GET CAMPAIGN - ERROR: ", data );
+    }); 
 }//end init
 
 
@@ -46,16 +48,6 @@ var ctgArr =[{"cat": "Science"},
         $scope.options = options;
         $scope.selectedOption = 0; 
 
-
-
- $scope.getData = function () {
-
- 	var expert = "Jose Cuerva";
-   
-    $scope.expert = expert;
-   	
-   	 console.log("getData - Gimme some data, baby: " + $scope.expert);
-  }//end getData 
 });//end controller
 
 //Our expert controller
