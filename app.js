@@ -1,17 +1,32 @@
 var testApp = angular.module('testApp', []);
 
-testApp.controller('testCtrl', function($scope, $http) {
+testApp.controller('testCtrl', function($rootScope, $scope, $http) {
 
 var testData;
 var expertData = new Array();
+
+$rootScope.categories = new Array();
+$rootScope.test = ['1','2','3'];
 
 $scope.init = function () {
 console.log("Yes...And away we go....!");
 
  $http.get( 'http://localhost:3030/').success(function(data) {
 			// if (err) throw err;
-    console.log("dataControl.getData data:  ",data[0].name );
-		}).error (function(data) {
+    console.log("dataControl.getData data:  ",data[0].category );
+		$rootScope.categories = data;
+  /*   for ( var i =0 ; i <data.length ; ++i) {
+        $rootScope.categories.push( data[i]);
+      }//end for */
+
+      for ( var i=0 ; i < data.length ; i++) {
+       $rootScope.categories.push({id: data[i].id, cat: data[i].cat });
+       console.log("rotoscope: " + $rootScope.categories[i].cat );
+    }
+
+    $scope.$broadcast('data-loaded');
+      console.log("dataControl.getData data:  ",$rootScope.categories[0].category );
+    }).error (function(data) {
         alert("GET CAMPAIGN - ERROR: ", data );
     }); 
 }//end init
@@ -31,17 +46,25 @@ $scope.getExpert = function (option) {
 });//end controller
 
 //Our idea controller
-testApp.controller('ideaCtrl', function($scope, $http) {
+testApp.controller('ideaCtrl', function($rootScope, $scope, $http) {
 
 var testData;
-
-var ctgArr =[{"cat": "Science"},
+//alert("idea Control: "  + $rootScope.categories. ); 
+/*var ctgArr =[{"cat": "Science"},
 				{"cat":"Design"},
 				{"cat":"Engineering"},
 				{"cat": "Finance"},
-				{"cat":"Food"}];
+				{"cat":"Food"}]; */
 
- console.log("Set up categories: ", ctgArr);
+$scope.$watch('data-loaded', function () { 
+      //    $scope.value = new Date(2014, 9, 22);
+          alert('Categories loaded: ' , $rootScope.categories );
+          console.log('Categories loaded: '+ $rootScope.categories );
+      });
+
+var ctgArr = $rootScope.categories;
+
+ console.log("USER - Set up categories: ", ctgArr);
 
    var options = ctgArr;
     // make sure the selector get the final options
@@ -63,7 +86,7 @@ var ctgArr =[ {"id":"0", "cat": "Please select until all categories are selected
         {"id":"4","cat": "Finance"},
         {"id":"5","cat":"Food"}];
 
- console.log("Set up categories: ", ctgArr);
+ console.log("Experts - Set up categories: ", ctgArr);
 
    var options = ctgArr;
     // make sure the selector get the final options
