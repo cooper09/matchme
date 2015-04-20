@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="testApp">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularJS Test App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="../css/site-styles.css" />
+    <script data-require="angular.js@1.0.x" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.js" data-semver="1.0.7"></script>
+    <script src="app.js"></script>
+    <style>
+  
+    </style>
+  </head>
+
+<body ng-controller="testCtrl" ng-init="init()">
+  <div>
+   <button ng-click="getData()" class="btn">Click Me for<br/>lastest Data</button>
+
+<!--  <div ng-controller="categoryCtrl" class="float">
+      <label>current categories: </label><br/>
+             <select 
+              ng-model="selectedOption" 
+              ng-options="option.category for option in options"
+              ng-change="changeCategory(selectedOption)"
+              id="Category"
+              >
+            </select>
+          </div>  -->
+
+    <div ng-controller="userCtrl"  class="float">
+          <label>current users: </label><br/>
+             <select 
+              ng-model="selectedOption" 
+              ng-options="option.name for option in options"
+              ng-change="changeCategory(selectedOption)"
+              id="User"
+              >
+            </select>
+          </div>
+
+     <div ng-controller="expertCtrl"  class="float">
+       <label>current experts: </label><br/>
+             <select 
+              ng-model="selectedOption" 
+              ng-options="option.name for option in options"
+              ng-change="changeCategory(selectedOption)"
+              id="Expert"
+              >
+            </select>
+          </div>
+    </div><!-- end data section -->
+    <div>
+           <h1>Match Me</h2>
+           <p>I have an idea in a particular field. Match me with an expert in that field.</p>
+            <p>Please select if you have an idea or want to be an idea expert. </p>
+      <div id="idea" ng-show="showIdea"></div>
+      <label>Choose Your Category: </label>
+           
+            <div ng-controller="categoryCtrl" class="">
+              <label>current categories: </label><br/>
+                     <select 
+                      ng-model="selectedOption" 
+                      ng-options="option.category for option in options"
+                      ng-change="changeCategory(selectedOption)"
+                      id="Category2"
+                      >
+                    </select>
+           
+          <p></p>
+          <label>Your Name: </label>
+          <input type="text" ng-model="fullName" /><br />
+          <p></p>
+          <p></p>
+          <label>Your Email: </label>
+          <input type="text" ng-model="emailAddr" /><br />
+          <p></p>
+            <input id="ideabtn2" type="button" value="FindExpert" ng-click="getExpert()">
+           <p></p>
+            <div class="base-class" ng-class="yourexpert" >
+              <text ng-model="expert">TEST - Your expert is Herbert Freebie{{expert}}. He will be contacting you shortly</text>
+            </div>
+       </div><!-- end controller -->
+</div> <!-- end idea --> 
+    </div><!-- end 
+  </body>
+
+</html>
