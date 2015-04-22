@@ -47,10 +47,30 @@ testApp.controller('categoryCtrl', function($scope, $http) {
     	});
 
  $scope.getExpert = function () {
+ 		console.log("Current list of experts: ", $scope.experts[0].cat1 );
 		console.log("Show our expert: ", $scope.selectedOption.category );
 		console.log("Show our expert: ", $scope.fullName );
 		console.log("Show our expert: ", $scope.emailAddr );
 
+		var expertArr = [];
+		var j = 0;
+
+		for (var i = 0 ; i < $scope.experts.length ; ++i ) {
+			console.log(" current expert category1: " + $scope.experts[i].cat1 );
+			if ( $scope.experts[i].cat1 == $scope.selectedOption.category ) {
+				expertArr[j] = $scope.experts[i].name;
+				j++;
+			}//end iff
+		}//end for loop
+
+		if ( expertArr.length > 0 ) {
+			alert("Here is your  list of experts: " + expertArr );
+		} else {
+			alert("Sorry, we couldn't find any experts for you!");
+		}]
+
+		// OK - now we have our experts add our user to the database
+		
   }//end getExpert
  
 
@@ -63,6 +83,7 @@ testApp.controller('userCtrl', function($scope, $http) {
 	 		$scope.options = $scope.users;
 	 		$scope.selectedOption = $scope.options[0];
     	});
+
 
 }); //end category Controller 
 

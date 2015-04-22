@@ -11,7 +11,7 @@ $rootScope.test = ['1','2','3'];
 $scope.init = function () {
 console.log("Yes...And away we go....!");
 
- $http.get( 'http://localhost:3030/').success(function(data) {
+ $http.get( 'http://localhost:3030/category').success(function(data) {
 			// if (err) throw err;
     console.log("dataControl.getData data:  ",data[0].category );
 		$rootScope.categories = data;
