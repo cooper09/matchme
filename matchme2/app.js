@@ -67,10 +67,10 @@ testApp.controller('categoryCtrl', function($scope, $http) {
 			alert("Here is your  list of experts: " + expertArr );
 		} else {
 			alert("Sorry, we couldn't find any experts for you!");
-		}]
+		};
 
 		// OK - now we have our experts add our user to the database
-		
+
   }//end getExpert
  
 
