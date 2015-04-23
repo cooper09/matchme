@@ -51,6 +51,7 @@
           </div>
     </div><!-- end data section -->
     <div>
+
            <h1>Match Me</h2>
            <p>I have an idea in a particular field. Match me with an expert in that field.</p>
             <p>Please select if you have an idea or want to be an idea expert. </p>
@@ -81,8 +82,13 @@
               <text ng-model="expert">TEST - Your expert is Herbert Freebie{{expert}}. He will be contacting you shortly</text>
             </div>
        </div><!-- end controller -->
-</div> <!-- end idea --> 
-    </div><!-- end 
+    </div> <!-- end idea --> 
+  </div><!-- end -->
+  <div id="main_btns">   
+  <button ng-click="showIdea = !showIdea">Idea/Question</button>
+  <button ng-click="showExpert = !showExpert">Idea Expert</button>
+</div>  
+
   </body>
 
 </html>

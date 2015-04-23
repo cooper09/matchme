@@ -65,24 +65,25 @@ testApp.controller('categoryCtrl', function($scope, $http) {
 
 		if ( expertArr.length > 0 ) {
 			alert("Here is your  list of experts: " + expertArr );
+			// OK - now we have our experts add our user to the database
+				var userObj = { 
+					name: $scope.fullName,
+					email: $scope.emailAddr,
+					category: $scope.selectedOption.category,
+					experts: expertArr
+				}
+
+				console.log("Final User Object:", userObj );
+				$http.post('http://localhost:3030/user/', userObj )
+				.success(function(data) {
+					console.log("Created new user: ",data);
+				}); 
+
 		} else {
 			alert("Sorry, we couldn't find any experts for you!");
 		};
 
-		// OK - now we have our experts add our user to the database
-		var userObj = { 
-			name: $scope.fullName,
-			email: $scope.emailAddr,
-			category: $scope.selectedOption.category,
-			experts: expertArr
-		}
-
-		console.log("Final User Object:", userObj );
-		$http.post('http://localhost:3030/user/', userObj )
-		.success(function(data) {
-			console.log("Created new user: ",data);
-		}); 
-
+		
   }//end getExpert
  
 
