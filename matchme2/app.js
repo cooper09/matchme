@@ -41,9 +41,9 @@ testApp.controller('categoryCtrl', function($scope, $http) {
 	 		$scope.options = $scope.category;
 	 		$scope.selectedOption = $scope.options[0];
 
+			 $scope.$watch('Category - selectedOption', function(newValue, oldValue) {
+			  	console.log("selected category: ", newValue );
 
-			 $scope.$watch('selectedOption', function(newValue, oldValue) {
-			  	console.log("selected category: ", $scope.selectedOption );
 			  });
     	});
 
@@ -86,28 +86,60 @@ testApp.controller('categoryCtrl', function($scope, $http) {
 
 		
   }//end getExpert
- 
-
 }); //end category Controller 
 
 testApp.controller('userCtrl', function($scope, $http) {
 	var optionNo = 0;
+	var start = true;
+
 	 $scope.$on('data-loaded', function(event, args) {
 	 		console.log('start select controller: ' , $scope.users );
 	 		$scope.options = $scope.users;
 	 		$scope.selectedOption = $scope.options[0];
-    	});
 
-
+	 		// Review data upon selection
+			$scope.$watch('selectedOption', function(newValue, oldValue) {
+			  	console.log("selected user: ", newValue );
+			  	if (start == false ) {
+			  	alert("User's name: "+ newValue.name +
+			  			"\nemail address: " + newValue.email +
+			  			"\ncategory: "  + newValue.category +
+			  			"\nassigned expert: " + newValue.expert 
+			  		);
+			  } else {
+			  	console.log("users initial load...");
+			  	start = false;
+			  }
+			});//end scope watch
+    	});//end data loaded
 }); //end category Controller 
 
 testApp.controller('expertCtrl', function($scope, $http) {
 	var optionNo = 0;
+	var start = true;
 	 $scope.$on('data-loaded', function(event, args) {
 	 		console.log('start select controller: ' , $scope.experts );
 	 		$scope.options = $scope.experts;
 	 		$scope.selectedOption = $scope.options[0];
-    	});
+
+	 		$scope.$watch('selectedOption', function(newValue, oldValue) {
+			  if (start == false ) {
+			  	console.log("selected expert: ", newValue );
+			  	alert( "EXPERT INFO:" +
+			  			"\nUser's name: "+ newValue.name +
+			  			"\nemail address: " + newValue.email +
+			  			"\ncat1: "  + newValue.cat1 +
+			  			"\ncat2: "  + newValue.cat2 +
+			  			"\ncat3: "  + newValue.cat3 +
+			  			"\ncat4: "  + newValue.cat4 +
+			  			"\ncat5: "  + newValue.cat5 
+			  		);
+			  } else {
+			  	console.log("experts initial load...");
+			  	start = false;
+			  }
+			});//end scope watch
+    	});//end data loaded
 
 	 $scope.showProfile = function () {
 	 	console.log('Show expert profile...');
