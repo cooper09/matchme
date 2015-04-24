@@ -108,4 +108,16 @@ testApp.controller('expertCtrl', function($scope, $http) {
 	 		$scope.selectedOption = $scope.options[0];
     	});
 
+	 $scope.showProfile = function () {
+	 	console.log('Show expert profile...');
+	     var showArr = new Array();
+	     for ( var i=0; i < expertData.length ; ++i ) {
+	        showArr[i] = expertData[i].cat;
+	     }
+
+	     alert("Here is your profile preferences: " + showArr );
+	     alert("Get ready for those emails!!!"); 
+	  }//end showProfile 
+
+
 }); //end category Controller 

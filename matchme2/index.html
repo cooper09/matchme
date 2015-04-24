@@ -55,7 +55,7 @@
            <h1>Match Me</h2>
            <p>I have an idea in a particular field. Match me with an expert in that field.</p>
             <p>Please select if you have an idea or want to be an idea expert. </p>
-      <div id="idea" ng-show="showIdea"></div>
+      <div id="idea" ng-show="showIdea">
       <label>Choose Your Category: </label>
            
             <div ng-controller="categoryCtrl" class="">
@@ -83,7 +83,39 @@
             </div>
        </div><!-- end controller -->
     </div> <!-- end idea --> 
-  </div><!-- end -->
+
+
+    <!-- EXPERT section -->
+    <div id="expert" ng-show="showExpert">
+           <label>So you want to be an expert. Select a category in the dropdown box below in the order of preference, ie, if Engineering is your strongest skillset click 'Engineering', if 'Science' is your next strongest select that next then your third preference until all five categories are selected:</label>
+        <span ng-controller="expertCtrl">
+                  <label>Choose Your Category: </label>
+           
+            <div ng-controller="categoryCtrl" class="">
+              <label>current categories: </label><br/>
+                     <select 
+                      ng-model="selectedOption" 
+                      ng-options="option.category for option in options"
+                      ng-change="changeCategory(selectedOption)"
+                      id="Category2"
+                      >
+                    </select>
+                  </div>
+                 <p></p>
+                <label>Your Email: </label>
+                  <input type="text" ng-model="emailAddr" /><br />
+                  <p></p>
+                    <input id="setbtn" type="button" value="Build Profile" ng-click="showProfile()">
+                   <p></p>
+              </span><!-- end expoert control -->
+               <p></p>
+                
+         <div class="base-class" ng-class="yourexpert" >
+            <text>Your profile has been added..now sit and wait for the requests to come rolling in!</text>
+          </div>
+       </div> 
+       <p></p>
+      </div><!-- end -->
   <div id="main_btns">   
   <button ng-click="showIdea = !showIdea">Idea/Question</button>
   <button ng-click="showExpert = !showExpert">Idea Expert</button>
