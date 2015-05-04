@@ -21,6 +21,11 @@ $scope.init = function () {
 			console.log("dataControl get expert data:  ",data);
 			$scope.experts = data;
 		});
+
+	/*	angular.element(document).ready(function () {
+		       $scope.getData();
+		    }); */
+
 }//end init
 
  $scope.getData = function () {
